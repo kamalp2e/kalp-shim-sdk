@@ -9,9 +9,12 @@ const version = 'v' + require('./package.json').version;
 const Logger = require('./lib/logger');
 
 const logger = Logger.getLogger('fabric-shim/cli');
+logger.info("Bootstrap process to begin")
 
 
 const main = async () => {
+    logger.info("Bootstrap process started")
+
     const results = await require('yargs')
         .parserConfiguration({ 'dot-notation': false })
         .commandDir('./lib/cmds')
