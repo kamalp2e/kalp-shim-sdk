@@ -5,7 +5,7 @@
   "description": "A node.js implementation of Hyperledger Fabric chaincode shim, to allow endorsing peers and user-provided chaincodes to communicate with each other",
   "main": "index.js",
   "bin": {
-    "fabric-chaincode-node": "./fabric-shim/cli.js"
+    "fabric-chaincode-node": "cli.js"
   },
   "repository": {
     "type": "git",
@@ -19,7 +19,7 @@
   "engines": {
     "node": ">=18"
   },
-  "types": "./fabric-shim/types/index.d.ts",
+  "types": "./types/index.d.ts",
   "license": "Apache-2.0",
   "nyc": {
     "exclude": [
@@ -71,7 +71,7 @@
     "caniuse-lite": "~1.0.30001325"
   },
   "scripts": {
-    "start": "./fabric-shim/startup.sh",
+    "start": "./startup.sh",
     "compile": "tsc --project test/typescript",
     "test": "nyc mocha --recursive 'test/unit/**/*.js' --reporter spec-junit-splitter-mocha-reporter",
     "update:clean": "rimraf bundle.js bundle.d.ts protos && mkdirp protos",
