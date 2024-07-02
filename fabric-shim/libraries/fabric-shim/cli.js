@@ -10,18 +10,10 @@ const Logger = require('./lib/logger');
 
 const logger = Logger.getLogger('fabric-shim/cli');
 logger.info("Bootstrap process to begin")
-<<<<<<< HEAD
-
-
-const main = async () => {
-    logger.info("Bootstrap process started")
-
-=======
 
 const main = async () => {
     
     logger.info("Bootstrap process started")
->>>>>>> a27731133358d0481cab6462226d90445a7c4789
     const results = await require('yargs')
         .parserConfiguration({ 'dot-notation': false })
         .commandDir('./lib/cmds')

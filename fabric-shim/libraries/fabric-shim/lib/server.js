@@ -68,14 +68,14 @@ class ChaincodeServer {
 
     start() {
         return new Promise((resolve, reject) => {
-            logger.debug('ChaincodeServer trying to bind to ' + this._serverOpts.address);
+            logger.info('ChaincodeServer trying to bind to ' + this._serverOpts.address);
 
             this._server.bindAsync(this._serverOpts.address, this._credentials, (error, port) => {
                 if (!error) {
-                    logger.debug('ChaincodeServer successfully bound to ' + port);
+                    logger.info('ChaincodeServer successfully bound to ' + port);
 
                     this._server.start();
-                    logger.debug('ChaincodeServer started.');
+                    logger.info('ChaincodeServer started.');
 
                     resolve();
                 } else {
@@ -87,7 +87,7 @@ class ChaincodeServer {
     }
 
     connect(stream) {
-        logger.debug('ChaincodeServer.connect called.');
+        logger.info('ChaincodeServer.connect called.');
 
         try {
             const client = new ChaincodeMessageHandler(stream, this._chaincode);
