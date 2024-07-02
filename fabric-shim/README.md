@@ -1,43 +1,65 @@
-# Hyperledger Fabric - Node.js Contracts
+[![NPM](https://nodei.co/npm/fabric-shim.svg?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/fabric-contract-api/)
 
-[![Build Status](https://dev.azure.com/Hyperledger/Fabric-Chaincode-Node/_apis/build/status/Fabric-Chaincode-Node?branchName=main)](https://dev.azure.com/Hyperledger/Fabric-Chaincode-Node/_build/latest?definitionId=33&branchName=main)
-[![fabric-contract-api npm module](https://img.shields.io/npm/v/fabric-shim?label=fabric-contract-api)](https://www.npmjs.com/package/fabric-contract-api)
-[![fabric-shim npm module](https://img.shields.io/npm/v/fabric-shim?label=fabric-shim)](https://www.npmjs.com/package/fabric-shim)
-[![fabric-shim-api npm module](https://img.shields.io/npm/v/fabric-shim?label=fabric-shim-api)](https://www.npmjs.com/package/fabric-shim-api)
-[![Discord](https://img.shields.io/discord/905194001349627914?label=discord)](https://discordapp.com/channels/905194001349627914/943090527920877598)
 
-This is the project to support the writing of Contracts with the node.js runtime.
 
-## Documentation
+[![Version](https://badge.fury.io/js/fabric-shim.svg)](http://badge.fury.io/js/fabric-shim)
 
-As an application developer, to learn about how to implement **"Smart Contracts"** for Hyperledger Fabric using Node.js, please visit the [API documentation](https://hyperledger.github.io/fabric-chaincode-node/) and follow the tutorial links.
 
-- [API documentation](https://hyperledger.github.io/fabric-chaincode-node/)
-- [Full Documenation on Hyperledger Fabric](https://hyperledger-fabric.readthedocs.io/)
-- [Samples repository](https://github.com/hyperledger/fabric-samples)
-- [Quick-start tutorial](TUTORIAL.md)
+The `fabric-shim` provides the *chaincode interface*, a lower level API for implementing "Smart Contracts". To confirm that this is the same as the `fabric-shim` in previous versions of Hyperledger Fabric.
 
-## Compatibility
+Detailed explanation on the concept and programming model can be found here: [https://hyperledger-fabric.readthedocs.io/en/latest/smartcontract/smartcontract.html](https://hyperledger-fabric.readthedocs.io/en/latest/smartcontract/smartcontract.html).
 
-For details on what Nodejs runtime and versions of Hyperledger Fabric can be used please see the [compatibility document](COMPATIBILITY.md).
 
-## npm Shrinkwrap
+## Chaincode Interface
 
-In line with the advice from [npm on shrinkwrap](https://docs.npmjs.com/cli/v8/configuring-npm/npm-shrinkwrap-json) the modules published do not contain a `npm-shrinkwrap.json` file.
+### Installation
+```sh
+npm install --save fabric-shim
+```
 
-It is **STRONGLY** recommended therefore that after testing, and before putting your contract into production a `npm-shrinkwrap.json` file is created. When the chaincode is install it will be via a `npm install --production` command.
+### Usage
+The [chaincode interface](https://hyperledger.github.io/fabric-chaincode-node/main/api/fabric-shim.ChaincodeInterface.html) contains two methods to be implemented:
+```javascript
+const shim = require('fabric-shim');
 
-## Contributing
+const Chaincode = class {
+	async Init(stub) {
+		// use the instantiate input arguments to decide initial chaincode state values
 
-If you are interested in contributing updates to this project, please start with the [contributing guide](CONTRIBUTING.md).
+		// save the initial states
+		await stub.putState(key, Buffer.from(aStringValue));
 
-There is also a [release guide](RELEASING.md) describing the process for publishing new versions.
+		return shim.success(Buffer.from('Initialized Successfully!'));
+	}
 
----
+	async Invoke(stub) {
+		// use the invoke input arguments to decide intended changes
 
-## License <a name="license"></a>
+		// retrieve existing chaincode states
+		let oldValue = await stub.getState(key);
 
-Hyperledger Project source code files are made available under the Apache
-License, Version 2.0 (Apache-2.0), located in the [LICENSE](LICENSE) file.
-Hyperledger Project documentation files are made available under the Creative
-Commons Attribution 4.0 International License (CC-BY-4.0), available at http://creativecommons.org/licenses/by/4.0/.
+		// calculate new state values and saves them
+		let newValue = oldValue + delta;
+		await stub.putState(key, Buffer.from(newValue));
+
+		return shim.success(Buffer.from(newValue.toString()));
+	}
+};
+```
+
+Start the chaincode process and listen for incoming endorsement requests:
+```javascript
+shim.start(new Chaincode());
+```
+
+### API Reference
+Visit [API Reference](https://hyperledger.github.io/fabric-chaincode-node/main/api/) and click on "Classes" link in the navigation bar on the top to view the list of class APIs.
+
+## Support
+Tested with node.js 8.9.0 (LTS).
+
+## License
+
+This package is distributed under the
+[Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
+see LICENSE.txt for more information.
