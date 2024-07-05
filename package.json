@@ -53,8 +53,7 @@
     "reflect-metadata": "^0.1.13",
     "winston": "^3.7.2",
     "yargs": "^17.4.0",
-    "yargs-parser": "^21.0.1",
-    "kalp-sdk-node": "git@github.com:kamalp2e/kalp-fabric-js-sdk.git"
+    "yargs-parser": "^21.0.1"
   },
   "devDependencies": {
     "chai": "^4.3.4",
