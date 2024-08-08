@@ -71,7 +71,6 @@
     "caniuse-lite": "~1.0.30001325"
   },
   "scripts": {
-    "buildt": "tsc --project test/typescript",
     "start": "./startup.sh",
     "compile": "tsc --project test/typescript",
     "test": "nyc mocha --recursive 'test/unit/**/*.js' --reporter spec-junit-splitter-mocha-reporter",
@@ -80,8 +79,13 @@
     "update:pbjs": "pbjs -t static-module -p google-protos -p protos $(find google-protos protos -name \"*.proto\" -type f) -o bundle.js",
     "update:pbts": "pbts -o bundle.d.ts bundle.js",
     "update": "npm run update:clean && npm run update:copy && npm run update:pbjs && npm run update:pbts",
-    "lint": "eslint ./lib ./types ./test/typescript/*.ts --ext .js --ext .ts",
-    "build": "npm run lint & npm test 2>&1"
+    "lint": "eslint ./lib ./types ./test/typescript/*.ts --ext .js --ext .ts",    
+    "buildt": "tsc --project fabric-contract-api/test/typescript",
+    "testt": "nyc mocha --recursive 'fabric-contract-api/test/unit/**/*.js'",
+    "lintt": "eslint ./fabric-contract-api/lib ./fabric-contract-api/types ./fabric-contract-api/test/typescript/*.ts --ext .js --ext .ts",
+    "test:unit": "npm run testt",
+    "test:schema": "ajv compile -s ./fabric-contract-api/schema/contract-schema.json && ajv validate -s ./fabric-contract-api/schema/contract-schema.json -d ./fabric-contract-api/schema/example-full.json",
+    "build": "npm run lint & npm test 2>&1 & npm run lintt &&  && npm run test:unit && npm run test:schema"
   }
 
 
