@@ -46,7 +46,7 @@
     "@hyperledger/fabric-protos": "~0.2.1",
     "@types/node": "^16.11.1",
     "ajv": "^6.12.2",
-    "fabric-contract-api": "2.5.6",
+    "fabric-contract-api": "git@github.com:p2eengineering/kalp-sdk-node.git",
     "fabric-shim-api": "2.5.6",
     "fast-safe-stringify": "^2.1.1",
     "long": "^5.2.3",
@@ -71,6 +71,7 @@
     "caniuse-lite": "~1.0.30001325"
   },
   "scripts": {
+    "buildt": "tsc --project test/typescript",
     "start": "./startup.sh",
     "compile": "tsc --project test/typescript",
     "test": "nyc mocha --recursive 'test/unit/**/*.js' --reporter spec-junit-splitter-mocha-reporter",
@@ -82,4 +83,6 @@
     "lint": "eslint ./lib ./types ./test/typescript/*.ts --ext .js --ext .ts",
     "build": "npm run lint & npm test 2>&1"
   }
+
+
 }
