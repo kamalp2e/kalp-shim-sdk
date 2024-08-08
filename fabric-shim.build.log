@@ -1,10 +1,10 @@
 Invoking: npm run lint & npm test 2>&1 
 
-> fabric-shim@2.5.5 lint
+> fabric-shim@2.5.6 lint
 > eslint ./lib ./types ./test/typescript/*.ts --ext .js --ext .ts
 
 
-> fabric-shim@2.5.5 test
+> fabric-shim@2.5.6 test
 > nyc mocha --recursive 'test/unit/**/*.js' --reporter spec-junit-splitter-mocha-reporter
 
 =============
@@ -53,23 +53,23 @@ Please only submit bug reports when using the officially supported version.
       ✓ should throw an error if null argument passed
       ✓ should throw an error if object missing init passed as argument
       ✓ should throw an error if object missing invoke passed as argument
-2024-05-31T09:17:42.201Z info [c-api:lib/handler.js]                              Creating new Chaincode Support Client for peer comminications  
-2024-05-31T09:17:42.206Z info [c-api:lib/chaincode.js]                            Registering with peer localhost:7051 as chaincode "mycc"  
+2024-06-13T16:53:59.453Z info [c-api:lib/handler.js]                              Creating new Chaincode Support Client for peer comminications  
+2024-06-13T16:53:59.457Z info [c-api:lib/chaincode.js]                            Registering with peer localhost:7051 as chaincode "mycc"  
       ✓ should start when passed init and invoke
-2024-05-31T09:17:42.217Z info [c-api:lib/chaincode.js]                            Registering with peer localhost:7051 as chaincode "mycc"  
+2024-06-13T16:53:59.465Z info [c-api:lib/chaincode.js]                            Registering with peer localhost:7051 as chaincode "mycc"  
       ✓ should delete unnecessary arguments passed to the CLI before passing on
       TLS handling
         ✓ should throw an error when CORE_TLS_CLIENT_KEY_PATH env var not set
         ✓ should throw an error when CORE_TLS_CLIENT_KEY_PATH env var set but CORE_TLS_CLIENT_CERT_PATH env var not set
-2024-05-31T09:17:42.288Z info [c-api:lib/handler.js]                              Creating new Chaincode Support Client for peer comminications  
-2024-05-31T09:17:42.290Z info [c-api:lib/chaincode.js]                            Registering with peer localhost:7051 as chaincode "mycc"  
+2024-06-13T16:53:59.518Z info [c-api:lib/handler.js]                              Creating new Chaincode Support Client for peer comminications  
+2024-06-13T16:53:59.519Z info [c-api:lib/chaincode.js]                            Registering with peer localhost:7051 as chaincode "mycc"  
         ✓ should call handler.chat() with the correct object and output a message
-2024-05-31T09:17:42.309Z info [c-api:lib/chaincode.js]                            Registering with peer localhost:7051 as chaincode "mycc"  
+2024-06-13T16:53:59.530Z info [c-api:lib/chaincode.js]                            Registering with peer localhost:7051 as chaincode "mycc"  
         ✓ should load the opts certificate attributes as JSON strings with the correct properties
     parsePeerUrlFcn
-2024-05-31T09:17:42.316Z error [c-api:lib/chaincode.js]                           The "peer.address" program argument must be set to a legitimate value of <host>:<port>  
+2024-06-13T16:53:59.535Z error [c-api:lib/chaincode.js]                           The "peer.address" program argument must be set to a legitimate value of <host>:<port>  
       ✓ should throw an error if peer.address not set
-2024-05-31T09:17:42.321Z error [c-api:lib/chaincode.js]                           The "peer.address" program argument can not be set to an "http(s)" url, use grpc(s) or omit the protocol  
+2024-06-13T16:53:59.540Z error [c-api:lib/chaincode.js]                           The "peer.address" program argument can not be set to an "http(s)" url, use grpc(s) or omit the protocol  
       ✓ should throw an error if peer.address set to url
       ✓ should use grpc when URL already has that prefix
       ✓ should use grpcs when URL already has that prefix
@@ -91,9 +91,9 @@ Please only submit bug reports when using the officially supported version.
   fabric-chaincode-node cli
     Main test
       ✓ should setup yargs correctly
-2024-05-31T09:17:42.407Z info [c-api:fabric-shim/cli]                             Bootstrap process completed  
+2024-06-13T16:53:59.605Z info [c-api:fabric-shim/cli]                             Bootstrap process completed  
       ✓ should handle resolved promise  correctly
-2024-05-31T09:17:42.429Z info [c-api:fabric-shim/cli]                             Bootstrap process completed  
+2024-06-13T16:53:59.622Z info [c-api:fabric-shim/cli]                             Bootstrap process completed  
       ✓ should handle rejected promise  correctly
 Major failure to start fabic-chaincode-node
 Test Failure
@@ -228,7 +228,7 @@ Arguments chaincode-tls-key-file and chaincode-tls-key-path are mutually exclusi
     #getInfoFromContract
       ✓ should use the main class defined in the package.json
       ✓ should use the main class defined in the package.json with a single element
-(node:2409) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 uncaughtException listeners added to [process]. Use emitter.setMaxListeners() to increase limit
+(node:2569) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 uncaughtException listeners added to [process]. Use emitter.setMaxListeners() to increase limit
 (Use `node --trace-warnings ...` to show where the warning was created)
       ✓ should throw an error if there is no json.main
       ✓ should use the main class defined with contracts exported, and custom serialization
@@ -236,7 +236,7 @@ Arguments chaincode-tls-key-file and chaincode-tls-key-path are mutually exclusi
     #getMetadata
       ✓ should handle when there are files available in META-INF dir
       ✓ should handle when there are files available in contract-metadata dir
-2024-05-31T09:17:43.374Z info [c-api:contracts-spi/bootstrap.js]                  No metadata file supplied in contract, introspection will generate all the data  
+2024-06-13T16:54:00.369Z info [c-api:contracts-spi/bootstrap.js]                  No metadata file supplied in contract, introspection will generate all the data  
       ✓ should handle when files not available
     #loadAndValidateMetadata
       ✓ validate and return the metadata
@@ -274,7 +274,7 @@ Arguments chaincode-tls-key-file and chaincode-tls-key-path are mutually exclusi
       ✓ should handle the case of no input
       ✓ should handle the case of multiple :
     #invokeFunctionality
-2024-05-31T09:17:43.704Z error [c-api:contracts-spi/chaincodefromcontract.js]     a logging prefix Error: Contract name is not known: name  
+2024-06-13T16:54:00.731Z error [c-api:contracts-spi/chaincodefromcontract.js]     a logging prefix Error: Contract name is not known: name  
 Expected Error Contract name is not known: name
       ✓ should handle missing function
 undefined
@@ -324,7 +324,7 @@ undefined
     #handleParameters
       ✓ should handle function with no parameters and none passed
       ✓ should handle function with no parameters but some passed
-2024-05-31T09:17:43.820Z error [c-api:contracts-spi/datamarshall.js]              undefined Expected 1 parameters, but 0 have been supplied  
+2024-06-13T16:54:00.840Z error [c-api:contracts-spi/datamarshall.js]              undefined Expected 1 parameters, but 0 have been supplied  
       ✓ should handle different length lists
       ✓ should handle error when schema has not useful fields
       ✓ should handle error when type invalid
@@ -363,7 +363,7 @@ undefined
       _getCurrentMsg
         ✓ should get the message at the top of the queue for a txContextId
         ✓ should return undefined when queue is empty for a txContextId
-2024-05-31T09:17:43.863Z error [c-api:lib/handler.js]                             Failed to find a message for transaction context id theChannelIDaTX  
+2024-06-13T16:54:00.870Z error [c-api:lib/handler.js]                             Failed to find a message for transaction context id theChannelIDaTX  
         ✓ should return undefined when queue does not exist for a txContextId
       _removeCurrentAndSendNextMsg
         ✓ should delete the current message and send the next for a txContentId
@@ -379,67 +379,67 @@ undefined
       ✓ should throw an error if argument only part matches chaincode format
       ✓ should throw an error if argument missing URL argument
       ✓ should throw an error if URL argument does not use grpc as protocol
-2024-05-31T09:17:43.870Z info [c-api:lib/handler.js]                              Creating new Chaincode Support Client for peer comminications  
+2024-06-13T16:54:00.877Z info [c-api:lib/handler.js]                              Creating new Chaincode Support Client for peer comminications  
       ✓ should set endpoint, client and default timeout
-2024-05-31T09:17:43.871Z info [c-api:lib/handler.js]                              Creating new Chaincode Support Client for peer comminications  
+2024-06-13T16:54:00.878Z info [c-api:lib/handler.js]                              Creating new Chaincode Support Client for peer comminications  
       ✓ should override the default request timeout if value passed
-2024-05-31T09:17:43.872Z info [c-api:lib/handler.js]                              Creating new Chaincode Support Client for peer comminications  
+2024-06-13T16:54:00.879Z info [c-api:lib/handler.js]                              Creating new Chaincode Support Client for peer comminications  
       ✓ should store additional grpc options
-2024-05-31T09:17:43.873Z info [c-api:lib/handler.js]                              Creating new Chaincode Support Client for peer comminications  
+2024-06-13T16:54:00.880Z info [c-api:lib/handler.js]                              Creating new Chaincode Support Client for peer comminications  
       ✓ should preserve casing in handler addr
       ✓ should throw an error if connection secure and certificate not passed
       ✓ should throw an error if connection secure encoded private key not passed as opt
       ✓ should throw an error if connection secure encoded private key not passed as opt
-2024-05-31T09:17:43.877Z info [c-api:lib/handler.js]                              Creating new Chaincode Support Client for peer comminications  
+2024-06-13T16:54:00.884Z info [c-api:lib/handler.js]                              Creating new Chaincode Support Client for peer comminications  
       ✓ should set endpoint, client and default timeout for a secure connection
-2024-05-31T09:17:43.881Z info [c-api:lib/handler.js]                              Creating new Chaincode Support Client for peer comminications  
+2024-06-13T16:54:00.892Z info [c-api:lib/handler.js]                              Creating new Chaincode Support Client for peer comminications  
       ✓ should set grpc ssl options when ssl-target-name-override passed
       close
-2024-05-31T09:17:43.882Z info [c-api:lib/handler.js]                              Creating new Chaincode Support Client for peer comminications  
+2024-06-13T16:54:00.893Z info [c-api:lib/handler.js]                              Creating new Chaincode Support Client for peer comminications  
         ✓ should call end on the stream
       chat
-2024-05-31T09:17:43.883Z info [c-api:lib/handler.js]                              Creating new Chaincode Support Client for peer comminications  
+2024-06-13T16:54:00.895Z info [c-api:lib/handler.js]                              Creating new Chaincode Support Client for peer comminications  
         ✓ should create an instance of ChaincodeMessageHandler and pass the argument
       toString
-2024-05-31T09:17:43.899Z info [c-api:lib/handler.js]                              Creating new Chaincode Support Client for peer comminications  
+2024-06-13T16:54:00.913Z info [c-api:lib/handler.js]                              Creating new Chaincode Support Client for peer comminications  
         ✓ should return ChaincodeSupportClient object as a string with the URL
     ChaincodeMessageHandler
       chat
         ✓ should create instance of MsgQueueHandler, register the client, setup listeners and write
         stream.on.data
-2024-05-31T09:17:43.921Z error [c-api:lib/handler.js]                             Chaincode is in "created" state, can only process messages of type "registered", but received "NOT REGISTERED"  
+2024-06-13T16:54:00.929Z error [c-api:lib/handler.js]                             Chaincode is in "created" state, can only process messages of type "registered", but received "NOT REGISTERED"  
           ✓ should throw error when in state created and MSG_TYPE not REGISTERED
-2024-05-31T09:17:43.936Z info [c-api:lib/handler.js]                              Successfully registered with peer node. State transferred to "established"  
-2024-05-31T09:17:43.936Z error [c-api:lib/handler.js]                             Chaincode is in "established" state, can only process messages of type "ready", but received "NOT REGISTERED"  
+2024-06-13T16:54:00.943Z info [c-api:lib/handler.js]                              Successfully registered with peer node. State transferred to "established"  
+2024-06-13T16:54:00.943Z error [c-api:lib/handler.js]                             Chaincode is in "established" state, can only process messages of type "ready", but received "NOT REGISTERED"  
           ✓ should throw error when in state established and MSG_TYPE not READY
-2024-05-31T09:17:43.954Z info [c-api:lib/handler.js]                              Successfully registered with peer node. State transferred to "established"  
-2024-05-31T09:17:43.955Z info [c-api:lib/handler.js]                              Successfully established communication with peer node. State transferred to "ready"  
+2024-06-13T16:54:00.959Z info [c-api:lib/handler.js]                              Successfully registered with peer node. State transferred to "established"  
+2024-06-13T16:54:00.960Z info [c-api:lib/handler.js]                              Successfully established communication with peer node. State transferred to "ready"  
           ✓ should do nothing when in state ready and MSG_TYPE equals REGISTERED
-2024-05-31T09:17:43.967Z info [c-api:lib/handler.js]                              Successfully registered with peer node. State transferred to "established"  
-2024-05-31T09:17:43.967Z info [c-api:lib/handler.js]                              Successfully established communication with peer node. State transferred to "ready"  
+2024-06-13T16:54:00.971Z info [c-api:lib/handler.js]                              Successfully registered with peer node. State transferred to "established"  
+2024-06-13T16:54:00.971Z info [c-api:lib/handler.js]                              Successfully established communication with peer node. State transferred to "ready"  
           ✓ should do nothing when in state ready and MSG_TYPE equals READY
-2024-05-31T09:17:43.989Z info [c-api:lib/handler.js]                              Successfully registered with peer node. State transferred to "established"  
-2024-05-31T09:17:43.989Z info [c-api:lib/handler.js]                              Successfully established communication with peer node. State transferred to "ready"  
+2024-06-13T16:54:00.994Z info [c-api:lib/handler.js]                              Successfully registered with peer node. State transferred to "established"  
+2024-06-13T16:54:00.995Z info [c-api:lib/handler.js]                              Successfully established communication with peer node. State transferred to "ready"  
           ✓ should call handleMsgResponse when in state ready and MSG_TYPE equals RESPONSE
-2024-05-31T09:17:44.011Z info [c-api:lib/handler.js]                              Successfully registered with peer node. State transferred to "established"  
-2024-05-31T09:17:44.011Z info [c-api:lib/handler.js]                              Successfully established communication with peer node. State transferred to "ready"  
+2024-06-13T16:54:01.009Z info [c-api:lib/handler.js]                              Successfully registered with peer node. State transferred to "established"  
+2024-06-13T16:54:01.009Z info [c-api:lib/handler.js]                              Successfully established communication with peer node. State transferred to "ready"  
           ✓ should call handleMsgResponse when in state ready and MSG_TYPE equals ERROR
-2024-05-31T09:17:44.022Z info [c-api:lib/handler.js]                              Successfully registered with peer node. State transferred to "established"  
-2024-05-31T09:17:44.022Z info [c-api:lib/handler.js]                              Successfully established communication with peer node. State transferred to "ready"  
+2024-06-13T16:54:01.020Z info [c-api:lib/handler.js]                              Successfully registered with peer node. State transferred to "established"  
+2024-06-13T16:54:01.020Z info [c-api:lib/handler.js]                              Successfully established communication with peer node. State transferred to "ready"  
           ✓ should call handleInit when in state ready and MSG_TYPE equals INIT
-2024-05-31T09:17:44.033Z info [c-api:lib/handler.js]                              Successfully registered with peer node. State transferred to "established"  
-2024-05-31T09:17:44.033Z info [c-api:lib/handler.js]                              Successfully established communication with peer node. State transferred to "ready"  
+2024-06-13T16:54:01.033Z info [c-api:lib/handler.js]                              Successfully registered with peer node. State transferred to "established"  
+2024-06-13T16:54:01.033Z info [c-api:lib/handler.js]                              Successfully established communication with peer node. State transferred to "ready"  
           ✓ should call handleTransaction when in state ready and MSG_TYPE equals TRANSACTION
-2024-05-31T09:17:44.047Z info [c-api:lib/handler.js]                              Successfully registered with peer node. State transferred to "established"  
-2024-05-31T09:17:44.047Z info [c-api:lib/handler.js]                              Successfully established communication with peer node. State transferred to "ready"  
-2024-05-31T09:17:44.047Z error [c-api:lib/handler.js]                             Received unknown message from the peer. Exiting.  
+2024-06-13T16:54:01.046Z info [c-api:lib/handler.js]                              Successfully registered with peer node. State transferred to "established"  
+2024-06-13T16:54:01.046Z info [c-api:lib/handler.js]                              Successfully established communication with peer node. State transferred to "ready"  
+2024-06-13T16:54:01.046Z error [c-api:lib/handler.js]                             Received unknown message from the peer. Exiting.  
           ✓ should end the process with value 1
         stream.on.end
           ✓ should cancel the stream
         stream.on.error
-2024-05-31T09:17:44.075Z error [c-api:lib/handler.js]                             Chat stream with peer - on error: %j {} 
+2024-06-13T16:54:01.065Z error [c-api:lib/handler.js]                             Chat stream with peer - on error: %j {} 
           ✓ should end the stream
-2024-05-31T09:17:44.086Z error [c-api:lib/handler.js]                             Chat stream with peer - on error: %j "Error\n    at Context.<anonymous> (/home/runner/work/fabric-chaincode-node/fabric-chaincode-node/libraries/fabric-shim/test/unit/handler.js:857:35)\n    at callFn (/home/runner/work/fabric-chaincode-node/fabric-chaincode-node/common/temp/node_modules/.pnpm/mocha@9.1.3/node_modules/mocha/lib/runnable.js:366:21)\n    at Runnable.run (/home/runner/work/fabric-chaincode-node/fabric-chaincode-node/common/temp/node_modules/.pnpm/mocha@9.1.3/node_modules/mocha/lib/runnable.js:354:5)\n    at Runner.runTest (/home/runner/work/fabric-chaincode-node/fabric-chaincode-node/common/temp/node_modules/.pnpm/mocha@9.1.3/node_modules/mocha/lib/runner.js:681:10)\n    at /home/runner/work/fabric-chaincode-node/fabric-chaincode-node/common/temp/node_modules/.pnpm/mocha@9.1.3/node_modules/mocha/lib/runner.js:804:12\n    at next (/home/runner/work/fabric-chaincode-node/fabric-chaincode-node/common/temp/node_modules/.pnpm/mocha@9.1.3/node_modules/mocha/lib/runner.js:596:14)\n    at /home/runner/work/fabric-chaincode-node/fabric-chaincode-node/common/temp/node_modules/.pnpm/mocha@9.1.3/node_modules/mocha/lib/runner.js:606:7\n    at next (/home/runner/work/fabric-chaincode-node/fabric-chaincode-node/common/temp/node_modules/.pnpm/mocha@9.1.3/node_modules/mocha/lib/runner.js:489:14)\n    at Immediate._onImmediate (/home/runner/work/fabric-chaincode-node/fabric-chaincode-node/common/temp/node_modules/.pnpm/mocha@9.1.3/node_modules/mocha/lib/runner.js:574:5)\n    at process.processImmediate (node:internal/timers:476:21)" 
+2024-06-13T16:54:01.073Z error [c-api:lib/handler.js]                             Chat stream with peer - on error: %j "Error\n    at Context.<anonymous> (/home/runner/work/fabric-chaincode-node/fabric-chaincode-node/libraries/fabric-shim/test/unit/handler.js:857:35)\n    at callFn (/home/runner/work/fabric-chaincode-node/fabric-chaincode-node/common/temp/node_modules/.pnpm/mocha@9.1.3/node_modules/mocha/lib/runnable.js:366:21)\n    at Runnable.run (/home/runner/work/fabric-chaincode-node/fabric-chaincode-node/common/temp/node_modules/.pnpm/mocha@9.1.3/node_modules/mocha/lib/runnable.js:354:5)\n    at Runner.runTest (/home/runner/work/fabric-chaincode-node/fabric-chaincode-node/common/temp/node_modules/.pnpm/mocha@9.1.3/node_modules/mocha/lib/runner.js:681:10)\n    at /home/runner/work/fabric-chaincode-node/fabric-chaincode-node/common/temp/node_modules/.pnpm/mocha@9.1.3/node_modules/mocha/lib/runner.js:804:12\n    at next (/home/runner/work/fabric-chaincode-node/fabric-chaincode-node/common/temp/node_modules/.pnpm/mocha@9.1.3/node_modules/mocha/lib/runner.js:596:14)\n    at /home/runner/work/fabric-chaincode-node/fabric-chaincode-node/common/temp/node_modules/.pnpm/mocha@9.1.3/node_modules/mocha/lib/runner.js:606:7\n    at next (/home/runner/work/fabric-chaincode-node/fabric-chaincode-node/common/temp/node_modules/.pnpm/mocha@9.1.3/node_modules/mocha/lib/runner.js:489:14)\n    at Immediate._onImmediate (/home/runner/work/fabric-chaincode-node/fabric-chaincode-node/common/temp/node_modules/.pnpm/mocha@9.1.3/node_modules/mocha/lib/runner.js:574:5)\n    at process.processImmediate (node:internal/timers:476:21)" 
           ✓ should end the  with error
       handleInit
         ✓ should call handleMessage
@@ -493,9 +493,9 @@ undefined
         ✓ should return ChaincodeSupportClient object as a string with the URL
     handleMessage
       Error
-2024-05-31T09:17:44.484Z error [c-api:lib/handler.js]                             %s Incorrect payload format. Sending ERROR message back to peer "[theChannelID-01234567]" 
+2024-06-13T16:54:01.484Z error [c-api:lib/handler.js]                             %s Incorrect payload format. Sending ERROR message back to peer "[theChannelID-01234567]" 
         ✓ should handle an error decoding the payload
-2024-05-31T09:17:44.488Z error [c-api:lib/handler.js]                             Failed to construct a chaincode stub instance from the INIT message: an error
+2024-06-13T16:54:01.486Z error [c-api:lib/handler.js]                             Failed to construct a chaincode stub instance from the INIT message: an error
     at fake.exceptionCreator (/home/runner/work/fabric-chaincode-node/fabric-chaincode-node/common/temp/node_modules/.pnpm/sinon@13.0.1/node_modules/sinon/lib/sinon/default-behaviors.js:18:32)
     at Object.invoke (/home/runner/work/fabric-chaincode-node/fabric-chaincode-node/common/temp/node_modules/.pnpm/sinon@13.0.1/node_modules/sinon/lib/sinon/behavior.js:165:35)
     at functionStub (/home/runner/work/fabric-chaincode-node/fabric-chaincode-node/common/temp/node_modules/.pnpm/sinon@13.0.1/node_modules/sinon/lib/sinon/stub.js:42:43)
@@ -518,22 +518,22 @@ undefined
     at Immediate._onImmediate (/home/runner/work/fabric-chaincode-node/fabric-chaincode-node/common/temp/node_modules/.pnpm/mocha@9.1.3/node_modules/mocha/lib/runner.js:574:5)
     at process.processImmediate (node:internal/timers:476:21)  
         ✓ should handle error creating a chaincode stub
-2024-05-31T09:17:44.489Z error [c-api:lib/handler.js]                             [theChannelID-01234567] Calling chaincode Init() has not called success or error.  
-2024-05-31T09:17:44.489Z error [c-api:lib/handler.js]                             [theChannelID-01234567] Calling chaincode Init() returned error response [[theChannelID-01234567] Calling chaincode Init() has not called success or error.]. Sending COMPLETED message back to peer  
+2024-06-13T16:54:01.488Z error [c-api:lib/handler.js]                             [theChannelID-01234567] Calling chaincode Init() has not called success or error.  
+2024-06-13T16:54:01.488Z error [c-api:lib/handler.js]                             [theChannelID-01234567] Calling chaincode Init() returned error response [[theChannelID-01234567] Calling chaincode Init() has not called success or error.]. Sending COMPLETED message back to peer  
         ✓ should handle chaincode.Init returning nothing
-2024-05-31T09:17:44.490Z error [c-api:lib/handler.js]                             [theChannelID-01234567] Calling chaincode Invoke() has not called success or error.  
-2024-05-31T09:17:44.490Z error [c-api:lib/handler.js]                             [theChannelID-01234567] Calling chaincode Invoke() returned error response [[theChannelID-01234567] Calling chaincode Invoke() has not called success or error.]. Sending COMPLETED message back to peer  
+2024-06-13T16:54:01.489Z error [c-api:lib/handler.js]                             [theChannelID-01234567] Calling chaincode Invoke() has not called success or error.  
+2024-06-13T16:54:01.489Z error [c-api:lib/handler.js]                             [theChannelID-01234567] Calling chaincode Invoke() returned error response [[theChannelID-01234567] Calling chaincode Invoke() has not called success or error.]. Sending COMPLETED message back to peer  
         ✓ should handle chaincode.Invoke returning nothing
-2024-05-31T09:17:44.492Z error [c-api:lib/handler.js]                             [theChannelID-01234567] Calling chaincode Init() has not called success or error.  
-2024-05-31T09:17:44.492Z error [c-api:lib/handler.js]                             [theChannelID-01234567] Calling chaincode Init() returned error response [[theChannelID-01234567] Calling chaincode Init() has not called success or error.]. Sending COMPLETED message back to peer  
+2024-06-13T16:54:01.491Z error [c-api:lib/handler.js]                             [theChannelID-01234567] Calling chaincode Init() has not called success or error.  
+2024-06-13T16:54:01.491Z error [c-api:lib/handler.js]                             [theChannelID-01234567] Calling chaincode Init() returned error response [[theChannelID-01234567] Calling chaincode Init() has not called success or error.]. Sending COMPLETED message back to peer  
         ✓ should handle chaincode.Init returning no status
-2024-05-31T09:17:44.494Z error [c-api:lib/handler.js]                             [theChannelID-01234567] Calling chaincode Invoke() has not called success or error.  
-2024-05-31T09:17:44.494Z error [c-api:lib/handler.js]                             [theChannelID-01234567] Calling chaincode Invoke() returned error response [[theChannelID-01234567] Calling chaincode Invoke() has not called success or error.]. Sending COMPLETED message back to peer  
+2024-06-13T16:54:01.492Z error [c-api:lib/handler.js]                             [theChannelID-01234567] Calling chaincode Invoke() has not called success or error.  
+2024-06-13T16:54:01.492Z error [c-api:lib/handler.js]                             [theChannelID-01234567] Calling chaincode Invoke() returned error response [[theChannelID-01234567] Calling chaincode Invoke() has not called success or error.]. Sending COMPLETED message back to peer  
         ✓ should handle chaincode.Invoke returning no status
       Complete
-2024-05-31T09:17:44.496Z info [c-api:lib/handler.js]                              [theChannelID-01234567] Calling chaincode Init() succeeded. Sending COMPLETED message back to peer  
+2024-06-13T16:54:01.494Z info [c-api:lib/handler.js]                              [theChannelID-01234567] Calling chaincode Init() succeeded. Sending COMPLETED message back to peer  
         ✓ should write a COMPLETE message when successful init
-2024-05-31T09:17:44.498Z info [c-api:lib/handler.js]                              [theChannelID-01234567] Calling chaincode Invoke() succeeded. Sending COMPLETED message back to peer  
+2024-06-13T16:54:01.495Z info [c-api:lib/handler.js]                              [theChannelID-01234567] Calling chaincode Invoke() succeeded. Sending COMPLETED message back to peer  
         ✓ should write a COMPLETE message when successful invoke
     createStub
       ✓ should return a new instance of Stub
@@ -571,7 +571,7 @@ undefined
       next
         ✓ should return _createAndEmitResult when there are elements left in the result set
         ✓ should return _createAndEmitResult when response hasMore and no error occurs
-2024-05-31T09:17:44.564Z error [c-api:lib/iterators.js]                           unexpected error received getting next value: %s "this.response.getId is not a function" 
+2024-06-13T16:54:01.549Z error [c-api:lib/iterators.js]                           unexpected error received getting next value: %s "this.response.getId is not a function" 
         ✓ should throw an error if error occurs when hasMore and listenerCount for data = 0
         ✓ should return done if response does not hasMore and listenerCount for end > 0
         ✓ should return done if response does not hasMore and listenerCount for end = 0
@@ -582,8 +582,8 @@ undefined
 
   Logger
     ✓ coverage
-2024-05-31T09:17:44.574Z error [c-api:_]                                          Unhandled Rejection reason __PERMITTED__ promise Promise { <rejected> '__PERMITTED__' }  
-2024-05-31T09:17:44.574Z error [c-api:_]                                          Unhandled Rejection reason __PERMITTED__ promise Promise { <rejected> '__PERMITTED__' }  
+2024-06-13T16:54:01.566Z error [c-api:_]                                          Unhandled Rejection reason __PERMITTED__ promise Promise { <rejected> '__PERMITTED__' }  
+2024-06-13T16:54:01.566Z error [c-api:_]                                          Unhandled Rejection reason __PERMITTED__ promise Promise { <rejected> '__PERMITTED__' }  
     getLogger
       ✓ should create a new logger name unknown
       ✓ should return existing logger if known name used
@@ -625,11 +625,11 @@ undefined
       ✓ should throw an error when serverOpts.tlsProps.cert is missing
     start()
       ✓ should call bindAsync and start
-2024-05-31T09:17:44.593Z error [c-api:lib/server.js]                              ChaincodeServer failed to bind to 0.0.0.0:9999  
+2024-06-13T16:54:01.588Z error [c-api:lib/server.js]                              ChaincodeServer failed to bind to 0.0.0.0:9999  
       ✓ should throw if bindAsync fails
     connect()
       ✓ should call connect
-2024-05-31T09:17:44.596Z warn [c-api:lib/server.js]                               connection from peer failed: Error: Some error from chat  
+2024-06-13T16:54:01.592Z warn [c-api:lib/server.js]                               connection from peer failed: Error: Some error from chat  
       ✓ should not throw even if chat fails
 
   Stub
@@ -812,7 +812,7 @@ undefined
       ✓ should leave txids exactly 8 letters as was
 
 
-  433 passing (3s)
+  433 passing (2s)
 
 
 =============================== Coverage summary ===============================
